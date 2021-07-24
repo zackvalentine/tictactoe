@@ -10,3 +10,10 @@ function add() {
     newBox.innerHTML = thisBoxId;
     board.appendChild(newBox);
 }
+
+function remove() {
+    const board = document.getElementById("board");
+    let children = document.querySelectorAll('.box');
+    board.removeChild(children[children.length - 1]);
+    boxId--;
+}

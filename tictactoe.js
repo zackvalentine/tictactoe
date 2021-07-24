@@ -16,6 +16,7 @@ const add = thisBoxId => {
             newBox.innerHTML = "O";
             player2.push(thisBoxId);
         }
+        showWinner();
     }
     board.appendChild(newBox);
 };
@@ -34,8 +35,6 @@ const showWinner = () => {
         board.innerHTML = '<div>Player 1 Wins!</div><button type="button" class="btn" onClick="javascript:reset()">Reset</button>'
     } else if(isPlayer2Winner) {
         board.innerHTML = '<div>Player 2 Wins!</div><button type="button" class="btn" onClick="javascript:reset()">Reset</button>'
-    } else {
-        board.innerHTML = '<div>No Winner</div><button type="button" class="btn" onClick="javascript:reset()">Reset</button>'
     }
 }
 

@@ -40,7 +40,8 @@ const showWinner = () => {
 }
 
 const checkForWinner = player => {
-    return checkForWinnerHorizontal(player);
+    return checkForWinnerHorizontal(player)
+        || checkForWinnerVertical(player);
 }
 
 const checkForWinnerHorizontal = player => {
@@ -48,6 +49,17 @@ const checkForWinnerHorizontal = player => {
         if (player.includes(i)
         && player.includes(i + 1)
         && player.includes(i + 2)) {
+            return true;
+        }
+    }
+    return false;
+}
+
+const checkForWinnerVertical = player => {
+    for(let i = 1; i <= 3; i++) {
+        if (player.includes(i)
+        && player.includes(i + 3)
+        && player.includes(i + 6)) {
             return true;
         }
     }

@@ -1,8 +1,4 @@
-let boxId = 0;
-
-function add() {
-    boxId++;
-    let thisBoxId = boxId;
+function add(thisBoxId) {
     const board = document.getElementById("board");
     let newBox = document.createElement('div');
     newBox.className = 'box';
@@ -11,9 +7,8 @@ function add() {
     board.appendChild(newBox);
 }
 
-function remove() {
-    const board = document.getElementById("board");
-    let children = document.querySelectorAll('.box');
-    board.removeChild(children[children.length - 1]);
-    boxId--;
+function setUpBoard() {
+    for(let i = 1; i <= 9; i++) {
+        add(i);
+    }
 }

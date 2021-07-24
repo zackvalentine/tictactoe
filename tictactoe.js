@@ -1,6 +1,7 @@
 let turnCounter = 0;
 let player1 = [];
 let player2 = [];
+const allBoxes = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
 const add = thisBoxId => {
     const board = document.getElementById("board");
@@ -12,6 +13,7 @@ const add = thisBoxId => {
         if(turnCounter % 2 == 1) {
             newBox.innerHTML = "X";
             player1.push(thisBoxId);
+            takeComputerTurn();
         } else {
             newBox.innerHTML = "O";
             player2.push(thisBoxId);
@@ -88,6 +90,16 @@ const reset = () => {
     turnCounter = 0;
 
     setUpBoard();
+}
+
+const takeComputerTurn = async () => {
+    let availableBoxes = allBoxes.filter(box =>
+        !player1.includes(box) && !player2.includes(box)
+    );
+
+    let chosenBoxId = availableBoxes[Math.floor(Math.random() * availableBoxes.length)];
+    let chosenBox = document.getElementById(chosenBoxId);
+    chosenBox.click();
 }
 
 document.addEventListener("DOMContentLoaded", setUpBoard);

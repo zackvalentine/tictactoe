@@ -29,7 +29,7 @@ const setUpBoard = () => {
 const showWinner = () => {
     const board = document.getElementById('board');
     let isPlayer1Winner = checkForWinner(player1);
-    let isPlayer2Winner = false;
+    let isPlayer2Winner = checkForWinner(player2);
     if(isPlayer1Winner) {
         board.innerHTML = "Player 1 Wins!"
     } else if(isPlayer2Winner) {
@@ -40,10 +40,16 @@ const showWinner = () => {
 }
 
 const checkForWinner = player => {
-    if(player.includes(1)
-    && player.includes(2)
-    && player.includes(3)) {
-        return true;
+    return checkForWinnerHorizontal(player);
+}
+
+const checkForWinnerHorizontal = player => {
+    for(let i = 1; i <= 7; i += 3) {
+        if (player.includes(i)
+        && player.includes(i + 1)
+        && player.includes(i + 2)) {
+            return true;
+        }
     }
     return false;
 }

@@ -1,0 +1,21 @@
+.btn {
+    background-color: blue;
+    color: white;
+}
+
+.box {
+    align-items: center;
+    border: 5px solid black;
+    display: flex;
+    font-size: 25px;
+    height: 100px;
+    justify-content: center;
+    margin: 5px;
+    width: 100px;
+}
+
+#board {
+    display: flex;
+    flex-wrap: wrap;
+    width: 360px;
+}

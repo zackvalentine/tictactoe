@@ -30,13 +30,17 @@ const setUpBoard = () => {
 };
 
 const showWinner = () => {
-    const board = document.getElementById('board');
+    const resultLabel = document.getElementById('result');
     let isPlayer1Winner = checkForWinner(player1);
     let isPlayer2Winner = checkForWinner(player2);
     if(isPlayer1Winner) {
-        board.innerHTML = '<div>Player 1 Wins!</div><button type="button" class="btn" onClick="javascript:reset()">Reset</button>'
+        console.log("Player 1 wins, ready to update label");
+        resultLabel.innerHTML = '<div>Player 1 Wins!</div><button type="button" class="btn" onClick="javascript:reset()">Reset</button>'
     } else if(isPlayer2Winner) {
-        board.innerHTML = '<div>Player 2 Wins!</div><button type="button" class="btn" onClick="javascript:reset()">Reset</button>'
+        console.log("Player 2 wins, ready to update label");
+        resultLabel.innerHTML = '<div>Player 2 Wins!</div><button type="button" class="btn" onClick="javascript:reset()">Reset</button>'
+    } else if(turnCounter == 9) {
+        resultLabel.innerHTML = '<div>Game is tied!</div><button type="button" class="btn" onClick="javascript:reset()">Reset</button>'
     }
 }
 
@@ -85,6 +89,8 @@ const isWinnerDiagonal = player => {
 const reset = () => {
     const board = document.getElementById('board');
     board.innerHTML = '';
+    const resultLabel = document.getElementById('result');
+    resultLabel.innerHTML = '';
     player1 = [];
     player2 = [];
     turnCounter = 0;

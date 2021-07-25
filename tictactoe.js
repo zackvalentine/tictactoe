@@ -37,6 +37,8 @@ const showWinner = () => {
         board.innerHTML = '<div>Player 1 Wins!</div><button type="button" class="btn" onClick="javascript:reset()">Reset</button>'
     } else if(isPlayer2Winner) {
         board.innerHTML = '<div>Player 2 Wins!</div><button type="button" class="btn" onClick="javascript:reset()">Reset</button>'
+    } else if(turnCounter == 9) {
+        board.innerHTML = '<div>Game is tied!</div><button type="button" class="btn" onClick="javascript:reset()">Reset</button>'
     }
 }
 
